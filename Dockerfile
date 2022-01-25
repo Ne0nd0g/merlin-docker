@@ -83,4 +83,4 @@ RUN go install github.com/Binject/go-donut@latest
 RUN go install mvdan.cc/garble@latest
 
 # Install Mythic Packages
-RUN pip install aio_pika requests mythic-payloadtype-container==0.1.0 dynaconf==3.1.4
+RUN pip install aio_pika requests mythic-payloadtype-container==0.1.1 dynaconf==3.1.4
