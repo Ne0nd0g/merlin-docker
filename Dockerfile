@@ -34,8 +34,8 @@ RUN apt update
 RUN apt install -y dotnet-sdk-2.1
 
 # Add Go packages to the module cache
-RUN go install github.com/Ne0nd0g/merlin@v1.2.1
-RUN go install github.com/Ne0nd0g/merlin-agent@v1.2.1
+RUN go install github.com/Ne0nd0g/merlin@v1.3.0
+RUN go install github.com/Ne0nd0g/merlin-agent@v1.3.0
 # For Mythic payload container
 RUN go get golang.org/x/tools@v0.1.5
 
@@ -58,6 +58,12 @@ RUN git clone https://github.com/Ne0nd0g/merlin-agent-dll
 WORKDIR /opt/merlin-agent-dll
 RUN go mod download
 RUN make
+
+# Build Merlin Agents
+WORKDIR /opt/merlin-agent
+RUN ["make", "all", "DIR=/opt/merlin/data/bin"]
+WORKDIR /opt/merlin-agent-dll
+RUN ["make", "DIR=/opt/merlin/data/bin"]
 
 # Build SharpGen
 WORKDIR /opt/merlin/data/src/cobbr/SharpGen
