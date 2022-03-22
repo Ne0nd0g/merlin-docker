@@ -34,8 +34,8 @@ RUN apt update
 RUN apt install -y dotnet-sdk-2.1
 
 # Add Go packages to the module cache
-RUN go install github.com/Ne0nd0g/merlin@v1.3.0
-RUN go install github.com/Ne0nd0g/merlin-agent@v1.3.0
+RUN go install github.com/Ne0nd0g/merlin@v1.3.1
+RUN go install github.com/Ne0nd0g/merlin-agent@v1.3.1
 # For Mythic payload container
 RUN go get golang.org/x/tools@v0.1.5
 
