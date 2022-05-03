@@ -34,8 +34,8 @@ RUN apt update
 RUN apt install -y dotnet-sdk-2.1
 
 # Add Go packages to the module cache
-RUN go install github.com/Ne0nd0g/merlin@v1.4.0
-RUN go install github.com/Ne0nd0g/merlin-agent@v1.4.0
+RUN go install github.com/Ne0nd0g/merlin@v1.4.1
+RUN go install github.com/Ne0nd0g/merlin-agent@v1.4.2
 # For Mythic payload container
 RUN go get golang.org/x/tools@v0.1.5
 
@@ -90,4 +90,4 @@ RUN go install mvdan.cc/garble@latest
 
 # Install Mythic Packages
 # https://docs.mythic-c2.net/customizing/payload-type-development/container-syncing#current-translation-container-versions
-RUN pip install aio_pika requests mythic-payloadtype-container==0.1.7 dynaconf==3.1.4
+RUN pip install aio_pika requests mythic-payloadtype-container==0.1.8 dynaconf==3.1.4
