@@ -86,7 +86,7 @@ WORKDIR /
 RUN go install github.com/Binject/go-donut@latest
 
 # Download Garble
-RUN go install mvdan.cc/garble@latest
+RUN go install mvdan.cc/garble@v0.6.0
 
 # Install Mythic Packages
 # https://docs.mythic-c2.net/customizing/payload-type-development/container-syncing#current-translation-container-versions
