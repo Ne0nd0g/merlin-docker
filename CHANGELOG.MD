@@ -3,6 +3,14 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## v1.2.0 - 2022-10-31
+
+## Changed
+
+- Fixed sRDI to a known good commit hash `5690685aee6751d0dbcf2c50b6fdd4427c1c9a0a`
+- Upgraded Garble to v0.7.2
+- Upgrade Python to 3.8.15
+
 ## v1.1.2 - 2022-07-22
 
 ## Changed
