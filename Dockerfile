@@ -1,4 +1,4 @@
-FROM golang:1.18-buster
+FROM golang:1.19-buster
 
 # Build the Docker image first
 #  > sudo docker build -t ne0nd0g/merlin-base .
@@ -41,14 +41,14 @@ RUN go mod download
 
 # Clone Merlin Agent
 WORKDIR /opt/
-RUN git clone -b v1.5.0 https://github.com/Ne0nd0g/merlin-agent
+RUN git clone -b v1.6.0 https://github.com/Ne0nd0g/merlin-agent
 WORKDIR /opt/merlin-agent
 RUN go mod download
 RUN make all
 
 # Clone Merlin Agent DLL
 WORKDIR /opt/
-RUN git clone -b v1.5.0 https://github.com/Ne0nd0g/merlin-agent-dll
+RUN git clone -b v1.6.0 https://github.com/Ne0nd0g/merlin-agent-dll
 WORKDIR /opt/merlin-agent-dll
 RUN go mod download
 RUN make

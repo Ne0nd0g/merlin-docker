@@ -3,6 +3,13 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## v1.3.0 - 2022-11-11
+
+### Changed
+
+- Upgraded base image to Go v1.19
+- Upgraded merlin-agent & merlin-agent-dll to v1.6.0
+
 ## v1.2.0 - 2022-10-31
 
 ## Changed
