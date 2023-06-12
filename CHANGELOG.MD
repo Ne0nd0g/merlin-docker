@@ -3,6 +3,22 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## v1.4.0 - 2023-06-11
+
+## Changed
+
+- Upgraded merlin to v1.5.1
+- Upgraded merlin-agent to v1.6.5
+- Upgraded merlin-agent-dll to v1.6.2
+- Upgraded Garble to v0.9.3
+
+## Removed
+
+- Python 3 install
+- Merlin on Mythic packages and repositories
+- sRDI
+- go-donut
+
 ## v1.3.0 - 2022-11-11
 
 ### Changed

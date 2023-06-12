@@ -8,19 +8,6 @@ RUN apt update
 RUN apt upgrade -y
 RUN apt install -y apt-transport-https vim gcc-mingw-w64 unzip xz-utils
 
-# Download & Install Python 3.8
-WORKDIR /opt
-RUN wget --quiet https://www.python.org/ftp/python/3.8.15/Python-3.8.15.tar.xz
-RUN tar -xf Python-3.8.15.tar.xz
-WORKDIR /opt/Python-3.8.15/
-RUN apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
-RUN ./configure --enable-optimizations --enable-shared
-# This takes a very long time
-RUN make
-RUN make install
-RUN ldconfig /opt/Python3.8.15
-RUN python3.8 -m pip install --upgrade pip
-
 # Install Microsoft package signing key
 RUN wget --quiet -O - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
 RUN mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/
@@ -35,34 +22,23 @@ RUN apt install -y dotnet-sdk-2.1
 
 # Clone Merlin Server
 WORKDIR /opt
-RUN git clone -b v1.5.0 --recurse-submodules https://github.com/Ne0nd0g/merlin
+RUN git clone -b v1.5.1 --recurse-submodules https://github.com/Ne0nd0g/merlin
 WORKDIR /opt/merlin
 RUN go mod download
+RUN make linux
 
 # Clone Merlin Agent
 WORKDIR /opt/
-RUN git clone -b v1.6.0 https://github.com/Ne0nd0g/merlin-agent
+RUN git clone -b v1.6.5 https://github.com/Ne0nd0g/merlin-agent
 WORKDIR /opt/merlin-agent
 RUN go mod download
-RUN make all
+RUN ["make", "all", "DIR=/opt/merlin/data/bin"]
 
 # Clone Merlin Agent DLL
 WORKDIR /opt/
-RUN git clone -b v1.6.0 https://github.com/Ne0nd0g/merlin-agent-dll
+RUN git clone -b v1.6.2 https://github.com/Ne0nd0g/merlin-agent-dll
 WORKDIR /opt/merlin-agent-dll
 RUN go mod download
-RUN make
-
-# Clone Merlin on Mythic
-WORKDIR /opt/
-RUN git clone https://github.com/MythicAgents/merlin mythic-agent-merlin
-WORKDIR /opt/mythic-agent-merlin/Payload_Type/merlin/agent_code
-RUN go mod download
-
-# Build Merlin Agents
-WORKDIR /opt/merlin-agent
-RUN ["make", "all", "DIR=/opt/merlin/data/bin"]
-WORKDIR /opt/merlin-agent-dll
 RUN ["make", "DIR=/opt/merlin/data/bin"]
 
 # Build SharpGen
@@ -75,22 +51,5 @@ RUN wget --quiet https://github.com/gentilkiwi/mimikatz/releases/latest/download
 RUN unzip mimikatz_trunk.zip -d mimikatz
 RUN rm /opt/merlin/data/src/mimikatz_trunk.zip
 
-# Download sRDI
-WORKDIR /opt/merlin/data/src
-RUN git clone https://github.com/monoxgas/sRDI
-WORKDIR /opt/merlin/data/src/sRDI
-# https://github.com/MythicAgents/merlin/issues/6
-RUN git checkout 5690685aee6751d0dbcf2c50b6fdd4427c1c9a0a
-
-# Move out to the root directory
-WORKDIR /
-
-# Download go-donut
-RUN go install github.com/Binject/go-donut@latest
-
 # Download Garble
-RUN go install mvdan.cc/garble@v0.7.2
-
-# Install Mythic Packages
-# https://docs.mythic-c2.net/customizing/payload-type-development/container-syncing#current-translation-container-versions
-RUN pip install aio_pika requests mythic-payloadtype-container==0.1.8 dynaconf==3.1.4
+RUN go install mvdan.cc/garble@v0.9.3
