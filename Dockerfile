@@ -22,7 +22,7 @@ RUN apt install -y dotnet-sdk-2.1
 
 # Clone Merlin Server
 WORKDIR /opt
-RUN git clone -b v2.1.0 --recurse-submodules https://github.com/Ne0nd0g/merlin
+RUN git clone -b v2.1.2 --recurse-submodules https://github.com/Ne0nd0g/merlin
 WORKDIR /opt/merlin
 RUN go mod download
 RUN make linux DIR=/opt/merlin
@@ -36,14 +36,14 @@ RUN make linux DIR=/opt/merlin-cli
 
 # Clone Merlin Agent
 WORKDIR /opt/
-RUN git clone -b v2.3.0 https://github.com/Ne0nd0g/merlin-agent
+RUN git clone -b v2.4.0 https://github.com/Ne0nd0g/merlin-agent
 WORKDIR /opt/merlin-agent
 RUN go mod download
 RUN ["make", "all", "DIR=/opt/merlin/data/bin"]
 
 # Clone Merlin Agent DLL
 WORKDIR /opt/
-RUN git clone -b v2.2.0 https://github.com/Ne0nd0g/merlin-agent-dll
+RUN git clone -b v2.3.0 https://github.com/Ne0nd0g/merlin-agent-dll
 WORKDIR /opt/merlin-agent-dll
 RUN go mod download
 RUN ["make", "DIR=/opt/merlin/data/bin"]
@@ -59,4 +59,4 @@ RUN unzip mimikatz_trunk.zip -d mimikatz
 RUN rm /opt/merlin/data/src/mimikatz_trunk.zip
 
 # Download Garble
-RUN go install mvdan.cc/garble@v0.11.0
+RUN go install mvdan.cc/garble@v0.12.1
