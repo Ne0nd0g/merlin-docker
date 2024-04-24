@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## v1.6.1 - 2024-04-23
+
+### Changed
+
+- Upgraded merlin to v2.1.3
+- Upgraded merlin-agent to v2.4.1
+- Upgraded merlin-agent-dll to v2.3.1
+- Upgraded merlin-cli to v1.1.4
+
 ## v1.6.0 - 2024-03-27
 
 ### Changed

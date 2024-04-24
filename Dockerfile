@@ -22,28 +22,28 @@ RUN apt install -y dotnet-sdk-2.1
 
 # Clone Merlin Server
 WORKDIR /opt
-RUN git clone -b v2.1.2 --recurse-submodules https://github.com/Ne0nd0g/merlin
+RUN git clone -b v2.1.3 --recurse-submodules https://github.com/Ne0nd0g/merlin
 WORKDIR /opt/merlin
 RUN go mod download
 RUN make linux DIR=/opt/merlin
 
 # Clone Merlin CLI
 WORKDIR /opt
-RUN git clone -b v1.1.2 https://github.com/Ne0nd0g/merlin-cli
+RUN git clone -b v1.1.4 https://github.com/Ne0nd0g/merlin-cli
 WORKDIR /opt/merlin-cli
 RUN go mod download
 RUN make linux DIR=/opt/merlin-cli
 
 # Clone Merlin Agent
 WORKDIR /opt/
-RUN git clone -b v2.4.0 https://github.com/Ne0nd0g/merlin-agent
+RUN git clone -b v2.4.1 https://github.com/Ne0nd0g/merlin-agent
 WORKDIR /opt/merlin-agent
 RUN go mod download
 RUN ["make", "all", "DIR=/opt/merlin/data/bin"]
 
 # Clone Merlin Agent DLL
 WORKDIR /opt/
-RUN git clone -b v2.3.0 https://github.com/Ne0nd0g/merlin-agent-dll
+RUN git clone -b v2.3.1 https://github.com/Ne0nd0g/merlin-agent-dll
 WORKDIR /opt/merlin-agent-dll
 RUN go mod download
 RUN ["make", "DIR=/opt/merlin/data/bin"]
