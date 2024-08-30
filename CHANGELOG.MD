@@ -3,6 +3,21 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## v1.7.0 - 2024-08-30
+
+### Changed
+
+- Created multi-arch builds with: `sudo docker buildx build --push --platform linux/amd64,linux/arm64 --tag ne0nd0g/merlin-base:v1.7.0 .`
+- Removed the following packages to decrease size and truly be a base image:
+    - Merlin Server
+    - Merlin CLI
+    - Merlin Agent
+    - Merlin Agent DLL
+    - SharpGen
+    - apt-transport-https, vim, xz-utils
+    - Microsoft .NET Core 2.1 SDK
+- Replaced gcc-mingw-w64 with gcc-mingw-w64-x86-64-win32
+
 ## v1.6.1 - 2024-04-23
 
 ### Changed
