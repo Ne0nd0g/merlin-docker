@@ -12,7 +12,7 @@ RUN apt install -y gcc-mingw-w64-x86-64-win32 unzip
 # Download Mimikatz
 WORKDIR /opt/
 RUN wget --quiet https://github.com/gentilkiwi/mimikatz/releases/latest/download/mimikatz_trunk.zip
-RUN unzip -j mimikatz_trunk.zip x64/mimikatz.exe -d /opt/mimikatz.exe
+RUN unzip -j mimikatz_trunk.zip x64/mimikatz.exe -d /opt
 RUN rm /opt/mimikatz_trunk.zip
 
 # Download Garble
