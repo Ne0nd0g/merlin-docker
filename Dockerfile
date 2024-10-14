@@ -1,4 +1,4 @@
-FROM golang:1.21-bullseye
+FROM golang:1.22-bullseye
 
 # Build the Docker image first
 #  > sudo docker build -t ne0nd0g/merlin-base .
@@ -16,4 +16,4 @@ RUN unzip -j mimikatz_trunk.zip x64/mimikatz.exe -d /opt
 RUN rm /opt/mimikatz_trunk.zip
 
 # Download Garble
-RUN go install mvdan.cc/garble@v0.12.1
+RUN go install mvdan.cc/garble@v0.13.0
