@@ -16,4 +16,4 @@ RUN unzip -j mimikatz_trunk.zip x64/mimikatz.exe -d /opt
 RUN rm /opt/mimikatz_trunk.zip
 
 # Download Garble
-RUN go install mvdan.cc/garble@v0.13.0
+RUN go install mvdan.cc/garble@v0.13.1
