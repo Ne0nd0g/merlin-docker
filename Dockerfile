@@ -7,7 +7,7 @@ FROM golang:1.22-bullseye
 
 # Update APT
 RUN apt update
-RUN apt install -y gcc-mingw-w64-x86-64-win32 unzip
+RUN apt install -y gcc-mingw-w64-x86-64-win32 gcc-mingw-w64-i686 unzip
 
 # Download Mimikatz
 WORKDIR /opt/
