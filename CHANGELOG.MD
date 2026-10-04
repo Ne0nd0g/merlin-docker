@@ -3,7 +3,13 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## v1.9.0 - 2026-10-03
+## v1.10.0 - 2026-10-04
+
+Released as v1.10.0 rather than v1.9.0: a `ne0nd0g/merlin-base:v1.9.0` image was
+already published to Docker Hub (2025-03-31) from the pre-revival `golang:1.22`
+Dockerfile and never git-tagged. Bumping to v1.10.0 avoids overwriting that
+published tag; consumers (e.g. the Mythic payload `Dockerfile`) pin
+`ne0nd0g/merlin-base:v1.10.0`.
 
 ### Changed
 
