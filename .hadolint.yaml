@@ -1,0 +1,8 @@
+# hadolint configuration for the merlin-base build image.
+ignored:
+  # DL3008: pin apt package versions. Intentionally not pinned — this is a rolling base
+  # image meant to track current toolchain/cross-compiler versions on each rebuild.
+  - DL3008
+  # DL3059: multiple consecutive RUN instructions. The remaining RUNs are kept as separate,
+  # logically distinct steps (apt / mimikatz / garble) for readability.
+  - DL3059
